@@ -7,3 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
+document.getElementById("donate").addEventListener("click", function() {
+  window.open('https://thijsbrits.gumroad.com/l/fkdjt', '_blank');
+});
