@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Greyscale Toggle",
+  "name": "Grayscale Toggle",
   "version": "1.0",
-  "description": "Toggle greyscale for websites.",
+  "description": "Toggle grayscale for websites.",
   "permissions": ["activeTab", "storage"],
   "content_scripts": [
     {

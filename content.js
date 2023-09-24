@@ -1,33 +1,33 @@
 document.documentElement.style.filter = 'grayscale(100%)';
-let isGreyscale = true;
+let isGrayscale = true;
 
 const url = window.location.hostname;
 
 // Fetch and apply stored preference
 browser.storage.local.get(url, function(data) {
   if (data[url] !== undefined) {
-    isGreyscale = data[url];
+    isGrayscale = data[url];
   }
-  applyGreyscale();
+  applyGrayscale();
 });
 
-function applyGreyscale() {
-  document.documentElement.style.filter = isGreyscale ? 'grayscale(100%)' : '';
+function applyGrayscale() {
+  document.documentElement.style.filter = isGrayscale ? 'grayscale(100%)' : '';
 }
 
-// Function to toggle and store greyscale
-function toggleGreyscale() {
-  isGreyscale = !isGreyscale;
-  applyGreyscale();
+// Function to toggle and store grayscale
+function toggleGrayscale() {
+  isGrayscale = !isGrayscale;
+  applyGrayscale();
   const saveObj = {};
-  saveObj[url] = isGreyscale;
+  saveObj[url] = isGrayscale;
   browser.storage.local.set(saveObj);
 }
 
 // Listen for messages from the popup
 browser.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    if (request.action === "toggleGreyscale") {
-      toggleGreyscale();
+    if (request.action === "toggleGrayscale") {
+      toggleGrayscale();
     }
   }
 );
